@@ -17,7 +17,7 @@ export default ({ data }) => {
           width="150"
           height="150"
           fluid
-          src="../../photos/headshot_steve_friedman_circle.png"
+          src="../../photos/headshot_steve_friedman_circle_clear.png"
           alt="Tzvi Friedman"
         />
         {unemployed && (
@@ -63,28 +63,6 @@ export default ({ data }) => {
               title="LinkedIn"
             />
           </a>
-          {/* <a
-            href="https://www.freecodecamp.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={["fab", "free-code-camp"]}
-              className="icons fcc"
-              title="FreeCodeCamp"
-            />
-          </a> */}
-          {/* <a
-            href="https://www.hackerrank.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={["fab", "hackerrank"]}
-              className="icons hr"
-              title="Hackerrank"
-            />
-          </a> */}
           <a
             href="mailto:tadwork@gmail.com"
             target="_blank"

@@ -13,15 +13,18 @@ style = "github-dark"
 
 [params]
   author = "Tzvi Friedman"
-  info = ["Software Engineer", "Engineering Manager"]
+  info = ["Software Engineer & Engineering Manager"]
   description = "Tzvi Friedman's personal website"
   keywords = "devops,software,web development,blog,developer,personal"
   avatarurl = "images/headshot_steve_friedman_circle_clear.png"
   #gravatar = "tadwork@gmail.com"
 
-  faviconSVG = "/img/favicon.svg"
-  favicon_32 = "/img/favicon-32x32.png"
-  favicon_16 = "/img/favicon-16x16.png"
+  faviconSVG = "/favicon.ico"
+  favicon_32 = "/favicon-32x32.png"
+  favicon_16 = "/favicon-16x16.png"
+  manifest = "/site.webmanifest"
+  mask_icon = "/safari-pinned-tab.svg"
+  touchicon = "/apple-touch-icon.png"
 
   since = 2008
 
@@ -31,13 +34,8 @@ style = "github-dark"
   hidecolorschemetoggle = false
 
   customCSS = ["css/custom.css"]
-
-  # [params.social]
-  #   twitter = 'tadwork'
-  #   facebook_admin = 'tadwork'
-
-#customSCSS = ["scss/custom.scss"]
-#customJS = ["js/custom.js"]
+  #customSCSS = ["scss/custom.scss"]
+  #customJS = ["js/custom.js"]
 
 [taxonomies]
   category = "categories"
@@ -46,21 +44,21 @@ style = "github-dark"
   author = "authors"
 
 # Social links
-[[params.social]]
+[[params.contacts]]
   name = "Github"
   icon = "fa fa-github fa-4x"
   weight = 1
   url = "https://github.com/Tadwork/"
-[[params.social]]
+[[params.contacts]]
   name = "LinkedIn"
   icon = "fa fa-linkedin fa-4x"
   weight = 2
   url = "https://www.linkedin.com/in/tzvi-dev/"
-[[params.social]]
+[[params.contacts]]
   name = "EMail"
   icon = "fa fa-envelope fa-4x"
   weight = 3
-  url = "tadwork@gmail.com"
+  url = "mailto:tadwork@gmail.com"
 # [[params.social]]
 #   name = "Twitter"
 #   icon = "fa fa-twitter fa-4x"
@@ -72,7 +70,11 @@ style = "github-dark"
 #   name = "Blog"
 #   weight = 1
 #   url  = "posts/"
-# [[menu.main]]
-#   name = "About"
-#   weight = 2
-#   url = "about/"
+[[menu.main]]
+  name = "Projects"
+  weight = 1
+  url = "projects/"
+[[menu.main]]
+  name = "About"
+  weight = 2
+  url = "about/"

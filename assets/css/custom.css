@@ -22,3 +22,37 @@ body.colorscheme-dark .author-firstname{
 .author-info{
   font-style: italic;
 }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.project-card {
+  /* background-color: #fff; */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-card-content {
+  padding: 15px;
+}
+
+.project-card-content h3 {
+  margin: 0 0 10px;
+}
+
+.project-card-content p {
+  margin: 0;
+}

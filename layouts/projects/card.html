@@ -1,0 +1,12 @@
+{{ $image := .Resources.Get "hero.png"}}
+{{ $image := $image.Process "fit 300x200" }}
+
+<div class="project-card">
+  <a href="{{ .Params.externalLink | default .RelPermalink }}">
+    <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}" />
+  </a>
+  <div class="project-card-content">
+    <h3>{{ .Title }}</h3>
+    <p>{{ .Content | truncate 100}}</p>
+  </div>
+</div>

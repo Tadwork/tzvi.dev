@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Raleway";
+    font-weight: 400;
+    font-style: normal;
+    src: url("./fonts/Raleway/Raleway-VariableFont_wght.ttf") format("ttf");
+    font-display: swap;
+  }
+
+.about h1{
+  font-family: 'Raleway', sans-serif;
+  line-height: 5.6rem;
+  font-size: 7rem;
+  font-weight: 300;
+}
+.author-firstname{
+  color: orange;
+}
+body.colorscheme-dark .author-firstname{
+  color: #a9180e;
+}
+
+.author-info{
+  font-style: italic;
+}

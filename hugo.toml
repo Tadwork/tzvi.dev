@@ -31,6 +31,11 @@ style = "github-dark"
   hidecolorschemetoggle = false
 
   customCSS = ["css/custom.css"]
+
+  # [params.social]
+  #   twitter = 'tadwork'
+  #   facebook_admin = 'tadwork'
+
 #customSCSS = ["scss/custom.scss"]
 #customJS = ["js/custom.js"]
 

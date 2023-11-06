@@ -1,0 +1,68 @@
+baseurl = "http://www.tzvi.dev"
+languageCode = 'en-us'
+title = 'Tzvi.dev'
+theme = "hugo-coder"
+defaultcontentlanguage = "en"
+
+paginate = 20
+
+disqusShortname = "tzvi_friedman"
+
+[markup.highlight]
+style = "github-dark"
+
+[params]
+  author = "Tzvi Friedman"
+  info = ["Software Engineer", "Engineering Manager"]
+  description = "Tzvi Friedman's personal website"
+  keywords = "devops,software,web development,blog,developer,personal"
+  avatarurl = "images/headshot_steve_friedman_circle_clear.png"
+  #gravatar = "tadwork@gmail.com"
+
+  faviconSVG = "/img/favicon.svg"
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
+
+  since = 2008
+
+  enableTwemoji = true
+
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+  customCSS = ["css/custom.css"]
+#customSCSS = ["scss/custom.scss"]
+#customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-4x"
+  weight = 1
+  url = "https://github.com/Tadwork/"
+[[params.social]]
+  name = "LinkedIn"
+  icon = "fa fa-linkedin fa-4x"
+  weight = 2
+  url = "https://www.linkedin.com/in/tzvi-dev/"
+[[params.social]]
+  name = "EMail"
+  icon = "fa fa-envelope fa-4x"
+  weight = 3
+  url = "tadwork@gmail.com"
+
+# Menu links
+# [[menu.main]]
+#   name = "Blog"
+#   weight = 1
+#   url  = "posts/"
+# [[menu.main]]
+#   name = "About"
+#   weight = 2
+#   url = "about/"

@@ -1,0 +1,6 @@
+<h1><span class="author-firstname">Tzvi </span>Friedman</h1>
+{{ if reflect.IsSlice .Site.Params.info }}
+<p class="author-info">{{ range .Site.Params.info }}{{ . | markdownify }}<br>{{ end}}</p>
+{{ else }}
+<p class="author-info">{{ .Site.Params.info | markdownify }} </p>
+{{ end }}

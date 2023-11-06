@@ -1,4 +1,4 @@
-baseurl = "http://www.tzvi.dev"
+baseurl = "https://www.tzvi.dev"
 languageCode = 'en-us'
 title = 'Tzvi.dev'
 theme = "hugo-coder"

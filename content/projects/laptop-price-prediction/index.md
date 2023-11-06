@@ -1,7 +1,6 @@
 ---
 title: "Laptop Price Prediction"
 date: 2023-11-01T09:03:20-08:00
-draft: true
 externalLink: "https://laptop-price-prediction.tzvi.dev/"
 featuredImage: "hero.png"
 ---

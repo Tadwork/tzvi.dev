@@ -3,12 +3,11 @@ title: "Overcoming Bit-Rot on Tzvi.dev"
 date: 2023-11-07T09:03:20-08:00
 featuredImage: "posts/new-tzvi-dev-site/featured.png"
 ---
+## Revitalizing Tzvi.dev
 
-## Trying to Revive the Old Version
+At the beginning of this month, I initiated a project to revive my personal web domain, [tzvi.dev](https://www.tzvi.dev), after a two-year period of inactivity. The latest version of the site was constructed using the Gatsby CMS, a framework based on React designed for building static websites. This choice seemed ideal back then due to my proficiency with React and TypeScript.
 
-Earlier this month, I embarked on a digital archaeology project—resurrecting [tzvi.dev](https://www.tzvi.dev), my personal web domain, after it lay dormant for over two years. The site's most recent iteration had been built on the Gatsby CMS, a React-based framework for developing static websites. At the time, this was a great choice since I was very familiar with React and TypeScript.
-
-Unfortunately, this decision did not age well. When I tried to reinstall the dependencies two years later, I was met with errors such as:
+Regrettably, the decision proved to be less sustainable over time. When I attempted to reinstall the site's dependencies after two years, I encountered numerous errors, such as:
 
 ```
 npm ERR! Could not resolve dependency:
@@ -16,32 +15,34 @@ npm ERR! peer eslint-plugin-react-hooks@"1.x || 2.x"
 ...
 ```
 
-Attempting to fix this by choosing different dependencies only led me further down the rabbit hole of dependency hell.
+Trying to resolve these issues by selecting alternative dependencies only led me deeper into a maze of compatibility problems often called 'dependency hell'.
 
-This phenomenon, where unmaintained code becomes impossible to deploy if not updated periodically, is sometimes referred to as 'bit-rot' because the code deteriorates on its own over time. After a brief struggle, it quickly became apparent that I could spend my time more effectively by replacing the Gatsby version with something that had fewer dependencies.
+This challenge, where neglected code becomes unworkable due to a lack of updates, is sometimes known as 'bit-rot'. It felt like the code decayed as if by itself over time. I quickly realized that it would be more efficient to replace the outdated Gatsby framework with a more straightforward alternative.
 
-## Introducing Hugo
+## Discovering Hugo
 
 ![Hugo logo](./hugo-logo-wide.svg)
 
-After some quick research, I settled on [Hugo](https://gohugo.io/) as a replacement for Gatsby. Hugo is a static site generator written in the Go programming language. On its homepage, the authors claim that using it will "make building websites fun again." While there was no automatic conversion from Gatsby to Hugo, I found a minimalistic theme that I could easily customize to match the previous design.
+I conducted some research and chose [Hugo](https://gohugo.io/) to replace Gatsby. Hugo is a static site generator developed in Go, notable for its rapid build times and user-friendly API. Hugo's creators tout that it will "make building websites fun again," which was a welcome perspective after my previous struggles. Although direct conversion from Gatsby to Hugo wasn't possible, I opted for a fresh start and selected a simple theme for customization to resemble the former design.
 
-I realized how powerful Hugo was once I installed the theme. Themes in Hugo are installed by adding a Git submodule, which made it easy to dive into the theme's source code to understand it better. If I needed to make any customizations, I simply had to create a parallel copy of the file in my source code and make the necessary changes.
+After theme installation, Hugo's effectiveness and enjoyable experience became clear. Themes are added as Git submodules, simplifying the process of delving into the theme's code for better understanding. For any custom changes, it was as simple as duplicating the relevant file into my source code and adjusting as needed.
 
-During development, I simply ran the command `hugo server --buildDrafts` to build a local version of the site that auto-updated with every change to the source files. Once satisfied, I turned to [this simple guide](https://gohugo.io/hosting-and-deployment/hosting-on-github/), which walked me through the steps to add a GitHub Action as a source for the final GitHub Pages build.
+For development, I ran `hugo server --buildDrafts`, which built a local preview of the site that updated automatically with each modification to the source files. This efficient feedback loop simplified the editing process, enabling me to complete the transition in just one day.
 
-## Too Many Redirects
+To publish the site, I followed [a straightforward guide](https://gohugo.io/hosting-and-deployment/hosting-on-github/) that instructed me on using a GitHub Action for the final build on GitHub Pages.
 
-![Redirect loop](./redirects.png)
-
-After completing the transition, I took the opportunity to transfer the domain from Google Domains to Cloudflare. Cloudflare offers additional features on top of DNS and domain hosting, including DDoS mitigation by adding a caching layer on top of websites, which can help prevent sites from being overwhelmed. Additionally, Cloudflare offers security-focused options, such as [Always Use HTTPS](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/always-use-https/), which redirects all visitor requests from HTTP to HTTPS for all subdomains and hosts.
-
-While I originally turned this option on, not anticipating any downsides, I quickly realized that it didn't play well with the web hosting I was using at GitHub Pages and AWS CloudRunner, which already served the page as HTTPS. This resulted in a [Redirect Loop](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/). Once I turned off the "Always Use HTTPS" option in the Cloudflare console, the redirect loop disappeared, and routing worked as expected.
-
-## Results
+## The Outcome
 
 ![Old vs New](./compare-old-new.png)
 
-As you can see from the screenshot above, the old and new sites are actually quite similar. Now that the transition is done, I am quite happy with the results and would highly recommend Hugo for its versatility and user-friendliness.
+As illustrated in the screenshot above, the old and new versions of the site look remarkably alike. Now that the transition is complete, I am quite pleased with the outcome and would suggest Hugo to others for its adaptability and ease of use.
 
-The site's full source code is available on [GitHub](https://github.com/Tadwork/tzvi.dev) for anyone who wants to take a closer look.
+The full source code for the site is hosted on [GitHub](https://github.com/Tadwork/tzvi.dev) for anyone interested in a more in-depth examination.
+
+## Addendum: Redirect Complications
+
+![Redirect loop](./redirects.png)
+
+Following the site overhaul, I transferred the domain from Google Domains to Cloudflare. Known for its DDoS protection, Cloudflare also provides DNS and domain services at competitive rates. Post-transfer, I enabled several of Cloudflare's security features, including [Always Use HTTPS](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/always-use-https/), which automatically redirects HTTP requests to HTTPS for better security.
+
+Initially, I hadn't foreseen any issues with this setting. However, it soon became apparent that it was incompatible with my hosting services at GitHub Pages and AWS CloudRunner, which already used HTTPS. This caused a [Redirect Loop](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/), leading to website access problems. After some troubleshooting, I disabled the "Always Use HTTPS" option in Cloudflare, which resolved the redirect loop and restored proper routing.

@@ -8,6 +8,7 @@ paginate = 20
 
 disqusShortname = "www-tzvi-dev"
 googleAnalytics = 'G-8VNBN2DTFH'
+enableEmoji = true
 
 [markup.highlight]
 style = "github-dark"
@@ -29,7 +30,6 @@ style = "github-dark"
 
   since = 2008
 
-  enableTwemoji = true
 
   colorScheme = "auto"
   hidecolorschemetoggle = false

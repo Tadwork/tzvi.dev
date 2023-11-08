@@ -6,7 +6,7 @@ defaultcontentlanguage = "en"
 
 paginate = 20
 
-# disqusShortname = "tzvi_friedman"
+disqusShortname = "www-tzvi-dev"
 googleAnalytics = 'G-8VNBN2DTFH'
 
 [markup.highlight]

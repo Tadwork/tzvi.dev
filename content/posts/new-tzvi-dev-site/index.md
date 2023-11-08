@@ -2,6 +2,7 @@
 title: "Overcoming Bit-Rot on Tzvi.dev"
 date: 2023-11-07T09:03:20-08:00
 featuredImage: "posts/new-tzvi-dev-site/featured.png"
+description: "My journey reviving a long neglected personal site and porting it from Gatsby to Hugo"
 ---
 ## Revitalizing Tzvi.dev
 

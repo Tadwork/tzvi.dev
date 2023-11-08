@@ -3,6 +3,7 @@ title: "Learning to improve — consistently"
 date: 2019-09-08T09:03:20-08:00
 featuredImage: "posts/learning-to-improve/plants.webp"
 tags: ["software development", "agile"]
+description: "Lessons I learnt while leading a software engineering team on how to encourage continuous improvement"
 ---
 ## Learning to improve — consistently
 

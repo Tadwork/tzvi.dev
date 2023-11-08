@@ -7,6 +7,6 @@
   </a>
   <div class="project-card-content">
     <h3>{{ .Title }}</h3>
-    <p>{{ .Content | truncate 100}}</p>
+    <p>{{ .Description | default (.Summary | default .Site.Params.description ) }}</p>
   </div>
 </div>

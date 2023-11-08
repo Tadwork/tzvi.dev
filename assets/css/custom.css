@@ -32,7 +32,6 @@ body.colorscheme-dark .author-firstname{
 }
 
 .project-card {
-  /* background-color: #fff; */
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -54,5 +53,7 @@ body.colorscheme-dark .author-firstname{
 }
 
 .project-card-content p {
+  font-size: 1.5rem;
   margin: 0;
+  line-height: 1em;
 }

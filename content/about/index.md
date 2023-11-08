@@ -7,7 +7,7 @@ author = "Tzvi Friedman"
 slug = "about"
 +++
 
-Hi! I am Tzvi (pronounced [TSViy](https://www.howtopronounce.com/tzvi)) a software engineer with 6+ years of experience building, managing, and leading software engineering teams with proven results and more than 10 years of experience building scalable web services, interfaces, and infrastructure for digital products.
+Hi! I am Tzvi (pronounced [TSViy](https://www.howtopronounce.com/tzvi)) a software engineer with 5+ years of experience building, managing, and leading software engineering teams with proven results and more than 10 years of experience building scalable web services, interfaces, and infrastructure for digital products.
 
 Most recently, I led teams at Meta focused on maintaining and building channel integrations with the Kustomer CRM. In this role I was responsible for supporting the teams building integrations with email, SMS, Twitter (now X), Facebook, Instagram, and Whatsapp.
 

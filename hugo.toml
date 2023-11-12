@@ -52,7 +52,7 @@ style = "github-dark"
   url = "https://github.com/Tadwork/"
 [[params.contacts]]
   name = "LinkedIn"
-  icon = "fa fa-linkedin fa-4x"
+  icon = "fa fa-linkedin-square fa-4x"
   weight = 2
   url = "https://www.linkedin.com/in/tzvi-dev/"
 [[params.contacts]]

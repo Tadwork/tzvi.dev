@@ -11,7 +11,8 @@ I recently needed to create a web service and deploy it to a publicly available 
 
 Years ago I had used Elastic Beanstalk to spin up an environment and I turned to that first. Once I began using it though, I quickly realized that Elastic Beanstalk wasn’t going to be as simple as I was hoping it would be. [I started by installing the CLI](https://github.com/aws/aws-elastic-beanstalk-cli-setup) and created a simple configuration using the docker mode to create a simple docker container and expose it to the public internet.
 
-```
+{{< highlight json >}}
+
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
@@ -24,7 +25,8 @@ Years ago I had used Elastic Beanstalk to spin up an environment and I turned to
     }
   ]
 }
-```
+{{< /highlight >}}
+
 
 Once that was done, I tried running 
 
@@ -40,7 +42,7 @@ Ok, so I need to make sure that the instance that is created has a higher memory
 
 Instead I tried switching to the v2 Elastic Beanstalk configuration. This version uses the docker compose syntax, can create multiple services, and allows the user to specify the minimum memory size as part of that configuration. After creating that configuration file in the following format:
 
-```
+{{< highlight json >}}
 {
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
@@ -54,7 +56,7 @@ Instead I tried switching to the v2 Elastic Beanstalk configuration. This versio
   ],
   ...
 } 
-```
+{{< /highlight >}}
 
 I tried bringing this version up with 
 
@@ -70,9 +72,9 @@ and while it created a lot of infrastructure including an ECS Cluster, Elastic L
 
 While I was searching around the AWS console I noticed a link to an AWS product that I had never heard of before with the unfortunate name of AWS Copilot. This product sold itself by claiming it can be used to "quickly launch and manage containerized applications on AWS." I figured I had nothing to lose trying it so I went to [install the AWS Copilot CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Copilot.html) as instructed and followed the instructions to run a single command:
 
-```
+{{< highlight shell >}}
 copilot init --app midterm --name laptop-price-prediction --type 'Request-Driven Web Service' --dockerfile './Dockerfile' --port 9696 --deploy
-```
+{{< /highlight >}}
 
 **_That worked!_**
 

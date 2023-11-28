@@ -10,11 +10,10 @@ At the beginning of this month, I initiated a project to revive my personal web 
 
 Regrettably, the decision proved to be less sustainable over time. When I attempted to reinstall the site's dependencies after two years, I encountered numerous errors, such as:
 
-```
+{{< highlight shell >}}
 npm ERR! Could not resolve dependency:
 npm ERR! peer eslint-plugin-react-hooks@"1.x || 2.x" 
-...
-```
+{{< /highlight >}}
 
 Trying to resolve these issues by selecting alternative dependencies only led me deeper into a maze of compatibility problems often called 'dependency hell'.
 

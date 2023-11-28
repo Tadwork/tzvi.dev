@@ -3,7 +3,6 @@ title: "Transform Your Software Engineering Job Search: Essential Tips for Every
 date: 2023-11-28T00:03:20-08:00
 featuredImage: "posts/best-job-hunting-resources/featured.png"
 tags: ["job search"]
-draft: true
 description: "Advice and Resources I found helpful during my search for a new Software Engineering role in 2023"
 ---
 

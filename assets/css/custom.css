@@ -6,6 +6,10 @@
     font-display: swap;
   }
 
+.center {
+  text-align: center;
+}
+
 .about h1{
   font-family: 'Raleway', sans-serif;
   line-height: 5.6rem;

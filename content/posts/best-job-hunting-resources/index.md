@@ -2,15 +2,15 @@
 title: "Transform Your Software Engineering Job Search: Essential Tips for Every Stage"
 date: 2023-11-28T00:03:20-08:00
 featuredImage: "posts/best-job-hunting-resources/featured.png"
-tags: ["job search"]
+tags: ["job search", "software engineering"]
 description: "Advice and Resources I found helpful during my search for a new Software Engineering role in 2023"
 ---
 
-During my search for a new Software Engineering role this past year I came across a few really impactful links that I wanted to share more broadly in the hopes that it will help others. While this isn't a comprehensive guide, in this post I tried to share at least one resource for each stage of the job search process.
+During my search for a new Software Engineering role this past year I came across a few really impactful tips and links that I wanted to share more broadly in the hopes that it will help others. While this isn't a comprehensive guide, in this post I tried to share at least one resource for each stage of the job search process.
 
 ## Preparing your Resume
 
-A well-written, error-free resume is crucial to the job search process. While each resume is unique, following the tips mentioned in [this](https://medium.com/startup-stash/unlocking-resume-success-4e2b26de5a0d) article from Shmuel Rosansky can help your resume stand out.
+A well-written, error-free resume is crucial to the job search process. While each resume is unique, a good resume will tell a clear story about your experience, highlight actionable results, and will be a strong match for the job you are applying for. Shmuel Rosansky does an amazing job laying out some tips you can use to help your resume acheive that level of clarity in [this article](https://medium.com/startup-stash/unlocking-resume-success-4e2b26de5a0d) and I whole-heartedly recommend that you read the full article to learn more.
 
 ## Applying for Opportunities
 
@@ -38,18 +38,17 @@ If you ever doubt your true worth, remember that the following is true:
 
 ## Behavioral Question Prep
 
-![Situation, Task, Action, Response as the 4 stages of the STAR format](https://www.thebalancemoney.com/thmb/dg4_4UFb8BoepIJjIFvPRW-Et4M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/behavioral-job-interview-questions-2061629_round2-e57ec8ca1d0b416882bf79c44c69aa83.jpg)
+{{< figure src="https://www.thebalancemoney.com/thmb/dg4_4UFb8BoepIJjIFvPRW-Et4M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/behavioral-job-interview-questions-2061629_round2-e57ec8ca1d0b416882bf79c44c69aa83.jpg" class="center" >}}
 
-Practice using the [STAR Format](https://www.thebalancemoney.com/what-is-the-star-interview-response-technique-2061629) to structure your responses to behavioral interview questions like:
+
+I came across [this great resource](https://docs.google.com/document/d/1nHh6Ucb1G3ub1wWMSmbl-IDfWRreVKVfPJnIEQDhyuE/edit) by [Kevin Conroy](https://www.kevinmconroy.com/hello/) which contains a list of common questions you can use to practice using the [STAR Format](https://www.thebalancemoney.com/what-is-the-star-interview-response-technique-2061629) to structure your responses to behavioral interview questions like:
 
 > Can you tell me about a time when ________????
 
-> What is constructive feedback that you have gotten and how did you handle it?
-
-For software engineering roles, I came across [this](https://docs.google.com/document/d/1nHh6Ucb1G3ub1wWMSmbl-IDfWRreVKVfPJnIEQDhyuE/edit) great resource which contains a list of common questions. While nothing can replace practice, I found that taking the time to prepare a list of stories from my work history helped me organize it in a way that made it easier to apply the story to any question. I used a Google Sheet with the following format:
+While nothing can replace practice, I also found that taking the time to prepare a list of stories from my work history helped me organize it in a way that made it easier to apply the story to any question. To organize my stories I used a [Google Sheet](https://docs.google.com/spreadsheets/d/1A-dRM79huRkdmvLg1BfqwX5Hjqal7WsXMaImMk271eU/edit?usp=sharing) with the following format:
 
 | Topics | Subject| Setup | Confrontation(s)| Resolution |
-|-----------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------|--------|-------|-----------------|------------|
 | Recruiting, Critical Feedback, Cross functional | WhatsApp Native | WhatsApp integration was a high profile project with a fixed deadline at the end of the year.  The goal of the project ... | Progress was impeded by layoffs and departures as the project was in its final sprints. I had to identify areas that needed to be completed, recruit appropriate talent from internal teams, onboard them to an unfamiliar project, and task out the work within the fixed deadline.      | Successfully recruited a team of engineers on top of existing recruitment efforts...|
 
 ## System Design Interview Preparation

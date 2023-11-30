@@ -10,7 +10,7 @@ _This is a compilation of my notes and insights from my participation in week 8 
 
 ## What is Deep Learning?
 
-![Deep Learning Visualization](./Deep-learning-visualization-4.gif)
+{{< figure src="./Deep-learning-visualization-4.gif" class="center" >}}
 
 One of my goals in starting the [Machine Learning ZoomCamp](https://mlzoomcamp.com/) was to deepen my understanding of the fundamentals driving recent advances in Machine Learning and Generative AI. I was particularly excited to begin Week 8, which delved into TensorFlow and Keras, two pivotal libraries in deep learning research and application.
 
@@ -18,7 +18,7 @@ At its heart, deep learning comprises techniques for constructing sophisticated 
 
 ## Building a Simple Neural Network Using Deep Learning
 
-![Bee or Wasp?](./bee-wasp.png)
+{{< figure src="./bee-wasp.png" class="center" >}}
 
 For this weeks [project](https://github.com/Tadwork/MLZoomCampSolutions/blob/main/week8/homework.ipynb), I constructed a basic convolutional neural network (CNN) using Keras. The task was to determine whether an image depicted a bee or a wasp, utilizing [this dataset](https://www.kaggle.com/datasets/jerzydziewierz/bee-vs-wasp) from Kaggle. Remarkably, the model required only a few lines of code to process the 150x150 RGB images in the training set. It included a [2D convolutional layer](https://keras.io/api/layers/convolution_layers/convolution2d/) generating 32 filters of 3x3 pixels, a pooling layer to downsample the output, and then 64-neuron and 1 neuron dense layers, culminating in a binary classification: bee (0) or wasp (1).
 
@@ -26,7 +26,7 @@ During training, each of the 3x3 filters are convolved (slid over) the training 
 
 Training it just on the dataset itself wasn't enough though, and the model over-fit to the training data pretty quickly. Applying a set of recommended transformations and augmentations to the training set helped to stabilize the model as can be seen in the below graph showing the accuracy score through multiple epochs of training.
 
-![Comparing accuracy before and after augmentation](./after-data-augmentation.png)
+{{< figure src="./after-data-augmentation.png" class="center" title="Comparing accuracy before and after augmentation">}}
 
 While the final accuracy peaked at 79% on the test set, which isn't great, the minimal effort and computational resources required to build this model were impressive.
 

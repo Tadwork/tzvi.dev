@@ -1,7 +1,7 @@
 ---
 title: "What is a (software) bug?"
 date: 2019-08-08T09:03:20-08:00
-featuredImage: "posts/bugs/bugs.webp"
+featuredImage: "posts/bugs/bugs.png"
 tags: ["software development", "agile", "bug"]
 description: "Some guidelines I use when evaluating the criticality of bugs and inconsistencies in software"
 ---

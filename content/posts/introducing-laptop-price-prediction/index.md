@@ -14,7 +14,7 @@ There are thousands of laptops on the market with very similar specifications an
 _Fair Warning: It isn't very accurate (has an RMSE of ~400) and I am looking forward to hearing from anyone who has ideas on how to improve the model._
 
 ### Why did I build this
-This is my Midterm Project submission for hashtag the [MLZoomCamp](https://mlzoomcamp.com/) and in order to build this I had to:
+This is my Midterm Project submission for the [MLZoomCamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) and in order to build this I had to:
 - Clean the dataset in order to improve the accuracy.
 - Investigate the values in the dataset using EDA.
 - Build multiple models including LinearRegression, Ridge Regression, and an ensemble model called XGBoost to compare the performance of each.

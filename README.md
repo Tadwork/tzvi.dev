@@ -1,8 +1,23 @@
 # Tzvi.dev
 
-Based on theme https://github.com/luizdepra/hugo-coder 
+Based on theme https://github.com/luizdepra/hugo-coder
+
+## Requirements
+
+Hugo Extended v0.124.0 or higher is required.
 
 ## Dev
 
-`brew install hugo`
-`hugo server --buildDrafts`
+Install Hugo:
+```bash
+brew install hugo
+```
+
+Run the development server:
+```bash
+hugo server --buildDrafts
+```
+
+## Deployment
+
+The site is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the `main` branch.

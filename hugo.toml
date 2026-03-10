@@ -4,11 +4,12 @@ title = 'Tzvi.dev'
 theme = "hugo-coder"
 defaultcontentlanguage = "en"
 
-paginate = 20
-
 disqusShortname = "www-tzvi-dev"
 googleAnalytics = 'G-8VNBN2DTFH'
 enableEmoji = true
+
+[pagination]
+pagerSize = 20
 
 [markup.highlight]
 style = "github-dark"

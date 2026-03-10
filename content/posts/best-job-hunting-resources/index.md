@@ -34,7 +34,7 @@ In order to capture your true worth you need to think about how you respond to q
 
 If you ever doubt your true worth, remember that the following is true:
 
-{{< tweet user="JordanKobi" id="1570561685018247168" >}}
+{{< x user="JordanKobi" id="1570561685018247168" >}}
 
 ## Behavioral Question Prep
 

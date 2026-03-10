@@ -7,7 +7,7 @@ author = "Tzvi Friedman"
 slug = "about"
 +++
 
-Hi :wave: ! I am Tzvi (pronounced [TSViy](https://www.howtopronounce.com/tzvi)) a software engineer with 5+ years of experience building, managing, and leading software engineering teams and more than 10 years of experience building scalable web services, interfaces, and infrastructure for digital products.
+Hi :wave: ! I am Tzvi (pronounced [TSViy](https://www.howtopronounce.com/tzvi)) a software engineer with 8+ years of experience building, managing, and leading software engineering teams and more than 15 years of experience building professional software including scalable web services, and infrastructure for digital products.
 
 I am currently a Sr Software Engineering Manager at [Capital One](https://www.capitalone.com/) where I have been leading teams since December 2023. Prior to that, I led teams at Meta focused on maintaining and building channel integrations with the Kustomer CRM. In this role I was responsible for supporting the teams building integrations with email, SMS, Twitter (now X), Facebook, Instagram, and Whatsapp.
 

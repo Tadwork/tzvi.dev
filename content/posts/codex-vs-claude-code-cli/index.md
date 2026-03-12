@@ -1,103 +1,51 @@
 ---
 title: "OpenAI Codex vs Claude Code: A CLI-First Comparison"
+featuredImage: "posts/codex-vs-claude-code-cli/featured.png"
 date: 2026-03-10T13:15:00-04:00
 draft: true
 tags: ["ai tooling", "developer tools", "cli", "openai", "anthropic"]
-description: "A deep comparison of Codex CLI and Claude Code CLI, focused on terminal workflows, safety controls, extensibility, and automation rather than model branding."
+description: "A deep comparison of Codex CLI and Claude Code CLI, focused on terminal workflows, safety controls, extensibility, and agentic behavior."
 ---
 
-Software engineers do not use coding agents in the abstract. We use them in real repositories, with real shell history, real test suites, real secrets, and real cleanup costs when something goes wrong.
+## Agentic Software Engineering 
 
-So the comparison I care about between OpenAI Codex and Claude Code is pretty simple: which CLI gives me the better operating model for day-to-day engineering?
+The pace of progress in Agentic Software Engineering over the past year has been incredible, with new tooling and capabilities being released on an almost daily basis. It isn't just the models that are advancing at a rapid pace, with innovation happening at the tooling & harness level that is redefining the entire Software Development Lifecycle. Everyone seemed to have noticed this at around the same time at the beginning of 2026 and as ["Claude Code is the Inflection Point"](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) lays out clearly it doesn't look like it is slowing down anytime soon. For a while it looked like Anthropic had hit an inflection point with Opus 4.5+ and Claude Code but the recent [release of GPT 5.4](https://openai.com/index/introducing-gpt-5-4/) by OpenAI feels like it leveled the playing field in terms of model capabilities causing me to give Codex a new look.
 
-That question is more interesting in 2026 than it was a year ago. Claude Code still feels like the default choice for a lot of engineers. Codex, especially paired with [GPT-5.4](https://openai.com/index/introducing-gpt-5-4/), is close enough now that the CLI design matters more than the logo on the box.
+First a quick detour to understand what I mean by "Agentic" Software Engineering, and why this is such a profound, possibly even generational shift:
 
-I am focusing on the `codex` CLI and the `claude` CLI specifically. I am not trying to rank the underlying models. What I care about here is what the tools expose in the terminal: safety controls, repo memory, extension surfaces, review flows, and automation paths.
+Since the release of Github Copilot in 2021-2022, and ChatGPT in 2022-2023, much of the tasks that software engineers had traditionally been responsible for have undergone various levels of automation. [Bassim Eledath's "The 8 Levels of Agentic Engineering"](https://www.bassimeledath.com/blog/levels-of-agentic-engineering) does an excellent job of explaining the levels of maturity Software Engineers can achieve with the current generation of tooling. His argument is that the frontier is no longer basic autocomplete or IDE chat, but the jump into Level 5 and beyond: skills, MCP, harnesses, feedback loops, background agents, and eventually agent teams. That is the level where these tools stop feeling like clever assistants and start affecting the shape of everyday engineering work. `codex` and `claude` both now operate in that territory, which makes this comparison less about raw model ranking and more about operating model: how they handle trust, memory, delegation, review, and automation when the work is happening in a real repository, with real consequences.
 
-I also want to keep two kinds of evidence separate in this piece:
 
-- documented product capabilities
-- personal usage experience
+## Comparing Claude Code and Codex CLI
 
-The first is easier to verify. The second still matters, especially when it comes from a week of actual work instead of a benchmark screenshot.
+{{< figure src="./two-buttons-usage-vs-speed.jpg" alt="Two buttons meme about choosing between higher usage limits and faster, terser replies" >}}
 
-## Scope
+Before getting into the feature-by-feature comparison. I compared both tools with their respective Pro plans at roughly the same consumer price point: $20/month USD.
 
-This comparison uses official documentation reviewed on March 10, 2026.
-
-The rules for the comparison are simple:
-
-- CLI only
-- Prefer documented capabilities over anecdotes
-- Treat popularity as context, not evidence
-- Separate direct facts from interpretation
-
-Table legend used below: `✅` documented/present, `❌` not documented/not present in the reviewed sources, `◐` partial or less emphasized, `⚠️` deprecated, `🤝` tie.
-
-## The Short Version
-
-If you want the short version, here it is:
-
-| Question | Codex CLI | Claude Code CLI |
-| --- | --- | --- |
-| What does it feel like? | An opinionated coding agent with explicit session controls | A programmable terminal agent with a broader policy surface |
-| Best early strength | Clear approval and sandbox model | Rich extension and memory model |
-| Best fit | Engineers who want a strong default operating model with less setup | Engineers and teams who want deeper customization and policy control |
-| Biggest built-in advantage | Direct planning, diff, review, and automation flow | Hooks, plugins, subagents, and richer repo memory |
-
-That summary is my read, not a vendor claim.
-
-## My Usage Experience
-
-Before getting into the feature-by-feature comparison, here is the main thing I noticed from using both Pro plans at roughly the same consumer price point: $20/month in the US.
-
-In my own usage, OpenAI Codex let me get a lot more real work done before I hit usage limits than Claude Code did. That was true even while I was using Codex with GPT-5.4. I do not want to stretch that into a universal claim about quota policy, because limits can change and account state matters. But as a day-to-day product experience, it mattered a lot.
+In my own usage, OpenAI Codex let me get a lot more real work done before I hit usage limits than Claude Code did. That was true even while I was using Codex with the latest GPT-5.4 model. I do not want to stretch that into a universal claim about quota policy, because limits can change and account state matters. But as a day-to-day product experience, it mattered a lot.
 
 I also noticed two tradeoffs:
 
 - Codex tended to be more verbose than Claude Code.
 - Codex responses sometimes felt more sluggish.
 
-In practice, that created a real tradeoff. Codex often felt more available. Claude often felt more concise and faster to read. If you spend hours a day in these tools, that changes how tiring they feel, not just how capable they are.
+I didn't try `fast` mode on either tool as the choice to do so felt wasteful given that the token costs were 1.5-2x and I wasn't in a rush.
 
-### Anecdotal experience table
-
-| Area | My experience with Codex | My experience with Claude Code | Caveat |
-| --- | --- | --- | --- |
-| Usage headroom on the $20 US plan | more | less | Personal experience only, not a platform-wide claim |
-| Response verbosity | more | less | Subjective, but consistent in my usage |
-| Perceived responsiveness | slower | faster | Subjective and likely sensitive to task shape and load |
-
-I want to keep this in the final post, but clearly label it as usage experience rather than documented fact.
-
-{{< figure src="./two-buttons-usage-vs-speed.jpg" alt="Two buttons meme about choosing between higher usage limits and faster, terser replies" title="The practical tradeoff I felt most often on the $20 plans." >}}
-
-## A Useful Mental Model
-
-The cleanest way I found to compare these tools was to ask four questions:
-
-| Question | Codex CLI | Claude Code CLI |
-| --- | --- | --- |
-| How do I steer autonomy? | Approval policy plus sandbox mode | Permission rules, permission modes, and sandboxing |
-| How do I teach repo conventions? | `AGENTS.md` and local overrides | `CLAUDE.md`, imports, rules, and auto memory |
-| How do I extend it? | MCP, skills, and multi-agents | MCP, skills, hooks, plugins, and subagents |
-| How do I automate it? | `codex exec`, JSON events, schema output | `claude -p`, JSON output, stream-json, resume/continue |
-
-That framing works because most engineering work with these tools comes back to the same four jobs:
-
-- keep the agent inside safe boundaries
-- give it the right local context
-- connect it to your systems
-- script repeatable workflows
 
 ## Convergent Evolution
 
-Both tools are far beyond "chat bot in a terminal."
+Both Claude Code and Codex CLI go far beyond a "chat bot in the terminal" and both take slightly different approaches to answer the following needs:
 
-| Area | Codex CLI | Claude Code CLI |
+- How do you keep agents inside safe boundaries
+- Can you give them the right local context
+- How does it connect to your external systems & context sources
+- How can they be used to script repeatable workflows and long form work
+
+In order to accomplish this each tool has a slightly different approach, but overall the experience is nearly identical
+
+| Feature | Codex CLI | Claude Code CLI |
 | --- | --- | --- |
-| Terminal-native workflow | ✅ | ✅ |
-| MCP support | ✅ | ✅ |
+| MCP support | `~/.claude.json` | `~/.codex/config.toml` |
 | Skills | `.agents/skills` | `.claude/skills` |
 | Repo instruction files | `AGENTS.md` | `CLAUDE.md` |
 | Non-interactive mode | `codex exec` | `claude -p` / `--print` |
@@ -105,11 +53,9 @@ Both tools are far beyond "chat bot in a terminal."
 | Specialized agents | multi-agents | subagents / `--agents` |
 | Local file references | `/mention` | `@path` autocomplete |
 
-If you have mostly used browser chat products, this shared baseline is already a big shift. Both tools treat the repository and execution environment as the unit of work, not the prompt.
-
 ## The First Real Difference: How They Handle Trust
 
-The first serious question with a coding agent is trust.
+The first serious question with a coding agent is trust and this is also one of the clearest product philosophy differences between the two tools.
 
 You want to know:
 
@@ -121,54 +67,39 @@ Codex and Claude both answer those questions, but they do it differently.
 
 ### Codex: compact and legible
 
-Codex puts approval policy and sandbox mode near the center of the product. The docs present a compact matrix: read-only, workspace-write, and danger-full-access style modes, combined with approval behavior such as asking for untrusted or risky actions.
+Codex puts approval policy and sandbox mode near the center of the product. The docs present a [compact matrix](https://developers.openai.com/codex/agent-approvals-security#common-sandbox-and-approval-combinations): read-only, workspace-write, and danger-full-access style modes, combined with approval behavior such as asking for untrusted or risky actions.
 
 This gives Codex a clean mental model. You can usually explain the current operating state in one sentence:
 
 "This run can edit the workspace, cannot roam freely outside it, and must ask before risky commands."
 
-That clarity matters. Engineers are more likely to use safety controls consistently when they can explain them quickly.
-
 ### Claude Code: deeper policy surface
 
-Claude Code exposes a more layered model. The docs describe permission rules such as `allow`, `ask`, and `deny`, separate permission modes such as `default`, `acceptEdits`, `plan`, `dontAsk`, and `bypassPermissions`, and separate sandboxing controls.
+Claude Code exposes a more layered model. The [docs](https://code.claude.com/docs/en/permissions#permission-modes) describe permission rules such as `allow`, `ask`, and `deny`, separate permission modes such as `default`, `acceptEdits`, `plan`, `dontAsk`, and `bypassPermissions`, and separate sandboxing controls.
 
-It is more expressive. It also means the mental model is heavier.
+It is more expressive and customizable but it also means the mental model is heavier.
 
-For an individual engineer, Codex may be easier to reason about. For a team that wants to shape policy precisely, Claude Code gives more knobs.
+## Context Customizability
 
-### Safety comparison table
+After trust, the next question is what each tool will remember about how the repo works, and what context it loads when it starts.
 
-| Area | Codex CLI | Claude Code CLI | Practical takeaway |
-| --- | --- | --- | --- |
-| Primary safety frame | Approval policy + sandbox mode | Permission rules + permission modes + sandboxing | Codex is simpler to explain; Claude is more configurable |
-| Preset operating modes | Strongly emphasized | Present, but wrapped in a larger permissions system | Codex feels more opinionated |
-| Fine-grained allow/ask/deny rules | Not the main documented surface in the reviewed docs | First-class documented concept | Claude has more explicit policy depth |
-| Best fit | Fast local reasoning about what the agent may do | Team-shaped policy and more explicit restrictions | Choose based on how much control detail you need |
-
-This is one of the clearest product philosophy differences between the two tools.
-
-## Repo Memory: Simple Instructions vs Layered Context
-
-After trust, the next question is what the tool will remember about how the repo works.
-
-Both tools support repository-local instructions. That part is table stakes now. The difference is how far they take it.
+Both tools support repository-local instructions since that is a table stakes feature. The difference is how far they take it.
 
 ### Codex: file-based and explicit
 
-In the material reviewed for this post, Codex uses `AGENTS.md`, `AGENTS.override.md`, and nested overrides near the current work area. That is a straightforward model:
+Codex uses the [AGENTS.md](https://agents.md/) standard, with `AGENTS.md`, `AGENTS.override.md`, and nested overrides near the current work area. That is a straightforward model:
 
 - put global repo instructions near the root
 - add more specific instructions near subdirectories
 - let the closer instruction win
 
-It is easy to teach and easy to audit. If a repo behaves strangely, you can usually find the relevant instruction file without much digging.
+It is easy to teach and easy to audit. This also means that id a prompt behaves strangely, you can usually find the relevant instruction file without much digging.
 
 ### Claude Code: layered and long-lived
 
-Claude Code also supports repo instruction files, but the documented system is broader. The docs describe `CLAUDE.md`, imports using `@path/to/import`, `.claude/rules/` files with `paths` frontmatter, and auto memory tied to a project or working tree.
+Claude Code also supports repo instruction files, but the documented system is broader. The docs describe `CLAUDE.md`, imports using `@path/to/import`, `.claude/rules/` files with `paths` frontmatter, and [auto memory](https://code.claude.com/docs/en/memory#claude-md-vs-auto-memory) tied to a project or working tree.
 
-That makes Claude Code more capable in large, uneven repos where different areas need different operating rules. It also means more moving parts.
+That makes Claude Code more capable in large, uneven repos where different areas need different operating rules and the approach is bespoke and non-standard.
 
 ### Memory comparison table
 
@@ -180,11 +111,9 @@ That makes Claude Code more capable in large, uneven repos where different areas
 | Path-pattern rules | ❌ | ✅ | Claude supports more targeted scoping |
 | Auto memory | ❌ | ✅ | Claude can accumulate more working context over time |
 
-If I were standardizing a small or medium repo quickly, I would expect Codex to have the lower setup burden. If I were building a heavily customized team workflow across several codebases, Claude Code's memory system would make me look harder at it.
+This seems like a killer feature for Claude Code to have that Codex doesn't support. Workarounds like resuming a session aren't as clean since they can pollute a new conversation/task with unnecessary context. I stumbled across the [Locus](https://github.com/Magnifico4625/locus) project which attempts to fix this across agent harnesses but didn't get a chance to test it myself.
 
 ## Extensibility: Both Are Serious, But One Is Wider
-
-This is where Claude Code still looks ahead.
 
 Both tools support MCP. Both support specialized skills. Both support some notion of multiple agents or delegated work. That already covers a large portion of what serious users want.
 
@@ -209,39 +138,21 @@ That is a good set of primitives. It is just narrower.
 | Plugins | ❌ | ✅ | Claude has a larger extension surface |
 | Marketplace model | ❌ | ✅ | Claude is closer to a platform model |
 
-This is one of the clearest documented differences between the two.
+## What About Codex App Server as a Hooks alternative?
 
-My interpretation here is pretty narrow:
+One nuance worth adding here: if you are comparing Codex to Claude hooks, the closest OpenAI feature is probably [Codex App Server](https://developers.openai.com/codex/app-server), but only if you are willing to build your own client around it.
 
-- Claude Code has the wider extension surface.
-- Codex has the tighter and easier-to-survey extension story.
+Claude hooks are a first-class CLI feature. You configure hook events like `PreToolUse`, `PostToolUse`, `PermissionRequest`, `Stop`, `SessionStart`, and others in Claude Code, and then run shell commands, HTTP handlers, prompts, or agent hooks automatically inside that lifecycle.
 
-I do not think this needs a universal winner.
+Codex App Server is different. OpenAI describes it as the protocol Codex uses to power rich clients like the Codex VS Code extension. It exposes a bidirectional JSON-RPC interface over `stdio` or WebSocket, streamed agent events, approval requests, thread and turn lifecycles, dynamic tool calls, and skill discovery. The docs are explicit that if you are automating jobs or running Codex in CI, you should use the Codex SDK instead.
 
-## Interactive Workflow: Codex Is More Direct About Review
+With Claude Code, you stay in the CLI and configure hooks.
 
-One area where Codex looks stronger than many engineers may expect is the built-in command surface inside the CLI itself.
+With Codex App Server, you are closer to building the thing that hosts Codex. That can be more powerful if you want your own app, your own approval UX, your own event handling, or your own client-side orchestration. It is also more work, and it is not the right comparison if the question is simply "which CLI gives me built-in hooks out of the box?"
 
-The Codex docs expose a broad set of interactive commands around planning, permissions, diffs, reviews, process inspection, MCP, and agent switching. The exact list matters less than the shape of it. Codex treats the CLI as a control room.
+Given all of that, according to an OpenAI team comment, [native hooks are planned for Codex](https://github.com/openai/codex/issues/2109#issuecomment-3806569090), so this comparison may age quickly if that lands in the CLI itself.
 
-Claude Code also has substantial built-in commands. The difference is that more of its power appears to route through the larger set of skills, plugins, rules, and subagents around it.
-
-You can see that most clearly in code review.
-
-### Review flow comparison table
-
-| Area | Codex CLI | Claude Code CLI | Practical takeaway |
-| --- | --- | --- | --- |
-| Built-in working tree review | ✅ `/review` | ⚠️ `/review` | Codex is more direct here |
-| Diff-oriented command flow | ✅ | ✅ | Both support inspection |
-| Security-specific review | ◐ | ✅ `/security-review` | Claude has a more explicit security review entry point |
-| Plugin or skill-based review | ◐ | ✅ | Claude review leans more on plugins and skills |
-
-If your workflow is "make changes, inspect diff, run review, then decide what to fix," Codex currently looks more straightforward.
-
-If your workflow is "compose custom review flows from plugins, subagents, and repo policy," Claude Code looks more flexible.
-
-## Automation and CI: Both Are Real Tools, Not Toys
+## Automation and CI: Both Are Built for Extensibility
 
 Automation is another part of the comparison that gets flattened too easily.
 
@@ -258,18 +169,11 @@ Claude Code also supports structured outputs, schema-guided responses, and non-i
 | Session reuse in scripts | ✅ | ✅ | Claude leans harder into interactive-to-script continuity |
 | Final artifact output | file-first | stdout-first | Different ergonomics, same general class of capability |
 
-My read at this point:
+## Is Claude Code still the clear winner?
 
-- Codex looks strong when you want "agent as command."
-- Claude Code looks strong when you want "interactive agent that can also drop into script mode without changing tools."
+Given everything I saw its clear to me that this race is tighter than it looks initially.
 
-That is a real difference in feel, even though both are capable.
-
-## So Why Does Claude Code Still Feel Like the Default?
-
-I would not write this section as a hard claim about market share unless I had outside usage data. What I am comfortable saying is narrower:
-
-Claude Code has several characteristics that make it easy to become the default tool inside a technical team:
+Claude Code has several characteristics that make it easy to become the default tool inside a technical team like:
 
 - broader policy controls
 - richer memory model
@@ -281,56 +185,9 @@ Claude Code has several characteristics that make it easy to become the default 
 
 That is a compelling package for teams that expect their coding agent to become part of their infrastructure.
 
-Codex is more competitive than that reputation suggests because it is strong in exactly the areas that matter once you actually live in the terminal:
-
-- clear safety controls
-- direct planning and review workflow
-- solid automation path
-- less cognitive overhead in the core operating model
+Codex is similar and in some ways it feels more competitive than that reputation suggests because it is strong in exactly the areas that matter for full time use like clear safety controls, adoption of the AGENTS.md standard, and less cognitive overhead in the core operating model.
 
 My own usage experience adds one more reason to take Codex seriously: I was able to get more work out of the Pro plan before running into limits, even while using GPT-5.4. That does not erase Claude Code's strengths, but it does change the cost-to-actual-usage equation in day-to-day practice.
-
-For me, that is what makes this feel like a real comparison now rather than a one-line dismissal.
-
-## Which Tool Fits Which Engineering Culture?
-
-This is where a lot of comparisons go wrong. They try to pick one universal winner. I do not think that is the useful question.
-
-### Codex CLI is a better fit when:
-
-- you want a strong built-in workflow with less configuration
-- you care a lot about a clear approval and sandbox model
-- you want planning, diffing, review, and automation to feel like one coherent product
-- you want to explain the tool's operating state quickly to another engineer
-
-### Claude Code CLI is a better fit when:
-
-- you want deeper policy shaping
-- you want richer repository memory and path-specific rules
-- you expect hooks, plugins, and subagents to become part of your standard engineering workflow
-- you are treating the coding agent as an extensible platform, not only a terminal assistant
-
-### Team fit table
-
-| Team or use case | Better first look | Why |
-| --- | --- | --- |
-| Individual engineer in one repo | Codex | Lower cognitive overhead, direct built-in controls |
-| Small team with shared conventions | Codex | Easier to explain and standardize quickly |
-| Large repo with uneven local rules | Claude | Richer memory and path-specific rule model |
-| Team building custom agent workflows | Claude | Hooks, plugins, and broader extension surface |
-| CI-heavy structured automation | 🤝 tie | Both have strong machine-readable output paths |
-| Diff and review centered local workflow | Codex | Built-in review flow is more direct in current docs |
-
-## What I Would Show With Images Later
-
-No images are needed for this draft, but the final post would benefit from a few diagrams.
-
-1. A split terminal screenshot showing Codex on one side with planning, permissions, and review commands, and Claude Code on the other with permissions, sandboxing, agents, and plugin-oriented controls.
-2. A repo tree showing `AGENTS.md` overlays compared with `CLAUDE.md`, imports, and path-scoped rules.
-3. A matrix with two axes: "easy to reason about" and "highly configurable."
-4. A small CI diagram comparing `codex exec` and `claude -p` as structured automation steps.
-5. A meme break after the anecdotal section using a "Two buttons" template.
-6. A meme break near the "default choice" section using a "Distracted Boyfriend" template.
 
 ## Final Take
 
@@ -338,33 +195,12 @@ Claude Code still looks stronger if you care most about extensibility, policy de
 
 Codex looks better than its reputation if you care most about having a clean, explicit operating model for real repository work. Its approval controls, sandboxing story, review flow, and automation path make it feel like a serious option rather than a distant second choice.
 
-My own experience pushes that conclusion a bit further. If you are paying for the consumer-tier Pro plans and actually living in the CLI every day, usage headroom matters a lot. Codex felt more available to me. Claude felt terser and faster. That tradeoff is not visible in feature tables, but it is very visible in daily use.
+My own experience pushes that conclusion a bit further. If you are paying for the consumer-tier Pro plans and actually living in the CLI every day, usage headroom matters a lot. Codex felt more available to me. Claude felt terser and faster. That tradeoff is not visible in feature tables, but was very visible in daily use.
 
-If I had to compress the comparison into one line, it would be this:
-
-Claude Code currently looks broader. Codex currently looks tighter.
-
-That sounds small, but it captures a lot. In terminal tools, breadth and tightness are different virtues. Which one matters more depends on whether you want your coding agent to behave more like a well-designed power tool or more like an extensible operating environment.
 
 ## Sources
 
-Primary documentation reviewed for this draft:
+Primary documentation reviewed for this post:
 
 - OpenAI Codex CLI: https://developers.openai.com/codex/cli
-- OpenAI Codex slash commands: https://developers.openai.com/codex/cli/slash-commands
-- OpenAI Codex CLI reference: https://developers.openai.com/codex/cli/reference
-- OpenAI Codex approvals and security: https://developers.openai.com/codex/agent-approvals-security
-- OpenAI Codex `AGENTS.md`: https://developers.openai.com/codex/guides/agents-md
-- OpenAI Codex MCP: https://developers.openai.com/codex/mcp
-- OpenAI Codex multi-agent: https://developers.openai.com/codex/multi-agent
-- OpenAI Codex non-interactive mode: https://developers.openai.com/codex/noninteractive
-- OpenAI Codex skills: https://developers.openai.com/codex/skills
-- Claude Code overview: https://code.claude.com/docs/en/overview
-- Claude Code interactive mode: https://code.claude.com/docs/en/interactive-mode
-- Claude Code settings: https://code.claude.com/docs/en/settings
-- Claude Code memory: https://code.claude.com/docs/en/memory
-- Claude Code hooks: https://code.claude.com/docs/en/hooks
-- Claude Code MCP: https://code.claude.com/docs/en/mcp
-- Claude Code programmatic usage: https://code.claude.com/docs/en/programmatic-usage
-- Claude Code subagents: https://code.claude.com/docs/en/sub-agents
-- Claude Code plugins reference: https://code.claude.com/docs/en/plugins-reference
+- Claude Code: https://code.claude.com/docs

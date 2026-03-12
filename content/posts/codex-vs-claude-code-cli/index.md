@@ -79,6 +79,10 @@ Claude Code exposes a more layered model. The [docs](https://code.claude.com/doc
 
 It is more expressive and customizable but it also means the mental model is heavier.
 
+### Which approach is better?
+
+I don't think either Codex CLI or Claude Code has "won" the permissions question yet. This is still a wide open area of experimentation, and the strongest evidence is that there is a cottage industry of solutions being proposed to solve this problem. Recent examples include projects like [nah](https://github.com/manuelschipper/nah), which adds context-aware permission checks and policy decisions around Claude Code tool calls, and [Agent Safehouse](https://github.com/eugene1g/agent-safehouse), which takes a deny-first sandboxing approach for local coding agents, exist because a lot of users still aren't satisfied with wither harness's native safety model on their own.
+
 ## Context Customizability
 
 After trust, the next question is what each tool will remember about how the repo works, and what context it loads when it starts.

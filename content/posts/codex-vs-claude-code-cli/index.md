@@ -9,39 +9,40 @@ description: "A deep comparison of Codex CLI and Claude Code CLI, focused on ter
 
 ## Agentic Software Engineering 
 
-The pace of progress in Agentic Software Engineering over the past year has been incredible, with new tooling and capabilities being released on an almost daily basis. It isn't just the models that are advancing at a rapid pace, with innovation happening at the tooling & harness level that is redefining the entire Software Development Lifecycle. Everyone seemed to have noticed this at around the same time at the beginning of 2026 and as ["Claude Code is the Inflection Point"](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) lays out clearly it doesn't look like it is slowing down anytime soon. For a while it looked like Anthropic had hit an inflection point with Opus 4.5+ and Claude Code but the recent [release of GPT 5.4](https://openai.com/index/introducing-gpt-5-4/) by OpenAI feels like it leveled the playing field in terms of model capabilities causing me to give Codex a new look.
+The pace of progress in Agentic Software Engineering over the past year has been incredible, with new tooling and capabilities being released on an almost daily basis. It isn't just the models that are advancing at a rapid pace, with innovation happening at the tooling & harness level as well that are redefining the entire Software Development Lifecycle. 
 
-First a quick detour to understand what I mean by "Agentic" Software Engineering, and why this is such a profound, possibly even generational shift:
+Everyone seemed to have noticed this at around the same time at the beginning of 2026 and as many articles like ["Claude Code is the Inflection Point"](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) have pointed out, it doesn't look like it is slowing down anytime soon. For a while it looked like Anthropic had hit an inflection point with Opus 4.5+ and Claude Code breaking ahead of other frontier labs like OpenAI, Google, etc. However the recent [release of GPT 5.4 by OpenAI](https://openai.com/index/introducing-gpt-5-4/) feels like it leveled the playing field in terms of model capabilities causing me to give Codex a new look.
 
-Since the release of Github Copilot in 2021-2022, and ChatGPT in 2022-2023, much of the tasks that software engineers had traditionally been responsible for have undergone various levels of automation. [Bassim Eledath's "The 8 Levels of Agentic Engineering"](https://www.bassimeledath.com/blog/levels-of-agentic-engineering) does an excellent job of explaining the levels of maturity Software Engineers can achieve with the current generation of tooling. His argument is that the frontier is no longer basic autocomplete or IDE chat, but the jump into Level 5 and beyond: skills, MCP, harnesses, feedback loops, background agents, and eventually agent teams. That is the level where these tools stop feeling like clever assistants and start affecting the shape of everyday engineering work. `codex` and `claude` both now operate in that territory, which makes this comparison less about raw model ranking and more about operating model: how they handle trust, memory, delegation, review, and automation when the work is happening in a real repository, with real consequences.
+## What do I mean be "Agentic" Software Engineering
+
+First a quick detour to understand what I mean by "Agentic" Software Engineering, and why this is such a profound, possibly even generational shift.
+
+Since the release of Github Copilot in 2021-2022, and ChatGPT in 2022-2023, much of the tasks that software engineers had traditionally been responsible for have undergone various levels of automation. The frontier is no longer basic autocomplete or IDE chat, but the jump into Level 5 and beyond: skills, MCP, harnesses, feedback loops, background agents, and eventually agent teams. That is the level where the tooling stops feeling like clever assistants and start affecting the shape of everyday engineering work. `codex` and `claude` both now operate in that territory, which makes comparing them less about raw model ranking and more about operating model: how they handle trust, memory, delegation, review, and automation when the work is happening in a real repository, with real consequences. For a deeper dive, read [Bassim Eledath's "The 8 Levels of Agentic Engineering"](https://www.bassimeledath.com/blog/levels-of-agentic-engineering) which does an excellent job of explaining the levels of maturity Software Engineers can achieve with the _current_ generation of tooling.
 
 
 ## Comparing Claude Code and Codex CLI
 
 {{< figure src="./two-buttons-usage-vs-speed.jpg" alt="Two buttons meme about choosing between higher usage limits and faster, terser replies" >}}
 
-Before getting into the feature-by-feature comparison. I compared both tools with their respective Pro plans at roughly the same consumer price point: $20/month USD.
+Before getting into the feature-by-feature comparison. I want to caveat that I compared both tools with their respective Pro plans at roughly the same consumer price point: $20/month USD.
 
-In my own usage, OpenAI Codex let me get a lot more real work done before I hit usage limits than Claude Code did. That was true even while I was using Codex with the latest GPT-5.4 model. I do not want to stretch that into a universal claim about quota policy, because limits can change and account state matters. But as a day-to-day product experience, it mattered a lot.
+In my own usage, OpenAI Codex let me get a lot more real work done before I hit usage limits than Claude Code did. That was true even while I was using Codex with the latest GPT-5.4 model. I don't want to stretch that into a universal claim about quota policy, because limits can change but as a day-to-day product experience, it mattered a lot.
 
-I also noticed two tradeoffs:
+On the flip side, I also noticed that Codex tended to be more verbose than Claude Code and that Codex responses sometimes felt more sluggish.
 
-- Codex tended to be more verbose than Claude Code.
-- Codex responses sometimes felt more sluggish.
-
-I didn't try `fast` mode on either tool as the choice to do so felt wasteful given that the token costs were 1.5-2x and I wasn't in a rush.
+Lastly, I also admit that I didn't try `fast` mode on either tool as the choice to do so felt wasteful given that the token costs were 1.5-6x the cost of normal usage, and these tools were fast enough for my needs in their default configuration.
 
 
 ## Convergent Evolution
 
-Both Claude Code and Codex CLI go far beyond a "chat bot in the terminal" and both take slightly different approaches to answer the following needs:
+Both Claude Code and Codex CLI go far beyond the first few levels of the 8 levels of Agentic Engineering but both take slightly different approaches to answer the following needs:
 
 - How do you keep agents inside safe boundaries
 - Can you give them the right local context
 - How does it connect to your external systems & context sources
 - How can they be used to script repeatable workflows and long form work
 
-In order to accomplish this each tool has a slightly different approach, but overall the experience is nearly identical
+In order to accomplish this each tool has a slightly different approach, but overall the experience is nearly identical. At a glance both tools seem to have similar if not exact feature sets:
 
 | Feature | Codex CLI | Claude Code CLI |
 | --- | --- | --- |
@@ -52,6 +53,8 @@ In order to accomplish this each tool has a slightly different approach, but ove
 | Session continuation | `/resume`, `/fork` | `--continue`, `--resume`, `/resume` |
 | Specialized agents | multi-agents | subagents / `--agents` |
 | Local file references | `/mention` | `@path` autocomplete |
+
+So how do these to
 
 ## The First Real Difference: How They Handle Trust
 
